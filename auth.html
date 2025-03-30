@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr" style="background: black;">
+<html lang="fr" style="background: rgb(253, 253, 253);">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Réservation - Lavage Auto</title>
+    <title>Authentification - Lavage Auto</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
         body {
@@ -41,6 +41,25 @@
           border-bottom: 2px solid violet; /* Underline effect */
         }
 
+        #packages {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        #packages .packages-container {
+          display: flex;
+          gap: 53px; /* Space between packages */
+          flex-direction: column;
+        }
+        #packages .packages-container a {
+          text-decoration: none;
+          color: white;
+          background-color: black;
+        }
+        #packages .packages-container a :hover {
+          background: black;
+          color: white;
+        }
         /* Header styles */
         header {
           background-color: black; /* Change header background to black */
@@ -112,6 +131,15 @@
           color: black; /* Change button hover text color to black */
         }
 
+        /* Package card styles */
+        .package {
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
         /* Footer styles */
         footer {
           background-color: black; /* Change footer background to black */
@@ -129,65 +157,93 @@
         footer a:hover {
           text-decoration: underline; /* Underline on hover */
         }
+
+        /* Centering the reservation section */
+        #reservation {
+          display: flex;
+          color: white;
+          flex-direction: column;
+          align-items: center; /* Center horizontally */
+          justify-content: center; /* Center vertically */
+          margin: 20px 0; /* Margin around the section */
+        }
+
+        #reservation form {
+          width: 100%; /* Ensure the form takes full width */
+          max-width: 400px; /* Limit the width for better appearance */
+        }
+
+        /* Header styles */
+        header h1,
+        section h2 {
+          color: #333; /* Dark color for headers */
+        }
+
+        .services li {
+          width: 20rem;
+          text-align: center;
+        }
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      function toggleForms() {
+        const loginForm = document.getElementById('login');
+        const registrationForm = document.getElementById('registration');
+        if (loginForm.style.display === 'none') {
+          loginForm.style.display = 'block';
+          registrationForm.style.display = 'none';
+        } else {
+          loginForm.style.display = 'none';
+          registrationForm.style.display = 'block';
+        }
+      }
+    </script>
   </head>
   <body>
-
-
     <header>
-      <h1 class="text-light my-5 text-center style="font-family: cursive">
+      <h1 class="text-light my-5 text-center" style="font-family: cursive">
         Bienvenue chez Lavage Auto
       </h1>
       <nav>
-        <ul class="d-flex justify-content-around ">
+        <ul class="d-flex justify-content-around">
           <div>
             <li><a href="index.html">Acceuil</a></li>
             <li><a href="reservation.html">Réservation</a></li>
             <li><a href="contact.html">Contact</a></li>
-          </div>
-
-          <div class="d-flex">
-            <li
-              style="
-                border: solid;
-
-                width: 4cm;
-                border-radius: 1cm;
-                background: white;
-
-                color: black;
-              "
-            >
-              <a href="inscription.html" class="text-dark">Inscription</a>
-            </li>
-
-            <li style="border: solid; width: 4cm; border-radius: 1cm">
-              <a href="Connexion.html">Connexion</a>
-            </li>
+           
           </div>
         </ul>
       </nav>
     </header>
+    <section id="auth" class="d-flex align-items-center justify-content-center">
+      <div style="width: 100%; max-width: 400px; margin-top: 64px;">
+        <h2>Authentification</h2>
+        <button onclick="toggleForms()">Switch to Inscription</button>
+        
+        <div id="login" style="display: block;">
+          <h3>Connexion</h3>
+          <form>
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Mot de passe" required />
+            <button type="submit">Se connecter</button>
+          </form>
+        </div>
 
-    <section id="reservation">
-      <h2>Réserver un Service</h2>
-      <form>
-        <input type="text" placeholder="Votre Nom" required />
-        <input type="email" placeholder="Votre Email" required />
-        <input type="date" placeholder="Date de Réservation" required />
-
-        <textarea placeholder="Détails supplémentaires" required></textarea>
-        <button type="submit">Réserver</button>
-      </form>
+        <div id="registration" style="display: none;">
+          <h3>Créer un Compte</h3>
+          <form>
+            <input type="text" placeholder="Votre Nom" required />
+            <input type="email" placeholder="Votre Email" required />
+            <input type="password" placeholder="Mot de Passe" required />
+            <button type="submit">S'inscrire</button>
+          </form>
+        </div>
+      </div>
     </section>
-
     <footer>
-      
-
-      
+      <p>&copy; 2025 Lavage Auto. Tous droits réservés.</p>
     </footer>
   </body>
 </html>
