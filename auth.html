@@ -1,249 +1,291 @@
 <!DOCTYPE html>
-<html lang="fr" style="background: rgb(253, 253, 253);">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentification - Lavage Auto</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page | AsmrProg</title>
+
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
-        body {
-          font-family: "Poppins", sans-serif;
-          margin: 0;
-          background: black;
-          padding: 0;
-          background-color: rgb(255, 255, 255); /* Keep background white for contrast */
-          color: rgb(255, 255, 255); /* Change text color to black */
-        }
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-        header {
-          background-color: black; /* Header background */
-          color: rgb(239, 239, 239); /* Header text color */
-        }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
 
-        footer {
-          background-color: black; /* Footer background */
-          color: rgb(255, 255, 255); /* Footer text color */
-        }
+body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
 
-        button {
-          padding: 10px;
-          background-color: blue; /* Button background */
-          color: white; /* Button text color */
-        }
+.container{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
 
-        button:hover {
-          background-color: violet; /* Button hover background */
-          color: white; /* Button hover text color */
-        }
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
 
-        h2 {
-          color: violet; /* Section title color */
-          border-bottom: 2px solid violet; /* Underline effect */
-        }
+.container span{
+    font-size: 12px;
+}
 
-        #packages {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-        }
-        #packages .packages-container {
-          display: flex;
-          gap: 53px; /* Space between packages */
-          flex-direction: column;
-        }
-        #packages .packages-container a {
-          text-decoration: none;
-          color: white;
-          background-color: black;
-        }
-        #packages .packages-container a :hover {
-          background: black;
-          color: white;
-        }
-        /* Header styles */
-        header {
-          background-color: black; /* Change header background to black */
-          color: white; /* Change header text color to white */
-          padding: 20px 0;
-          text-align: center;
-        }
+.container a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
 
-        /* Navigation styles */
-        nav ul {
-          list-style-type: disc;
-          padding: 0;
-        }
+.container button{
+    background-color: #512da8;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
 
-        nav ul li {
-          display: inline;
-          margin: 0 15px;
-        }
+.container button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+}
 
-        nav ul li a {
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
+.container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
 
-        nav ul li a:hover {
-          text-decoration: underline; /* Underline on hover */
-        }
+.container input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
 
-        /* Section title styles */
-        h2 {
-          color: #333; /* Dark color for section titles */
-          border-bottom: 2px solid black; /* Underline effect */
-          padding-bottom: 10px;
-        }
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
 
-        /* General form styles */
-        form {
-          display: flex;
-          flex-direction: column;
-          gap: 15px; /* Space between form elements */
-          margin: 20px 0; /* Margin around the form */
-        }
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
 
-        /* Input fields */
-        input[type=text],
-        input[type=email],
-        input[type=password],
-        textarea {
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 16px;
-        }
+.container.active .sign-in{
+    transform: translateX(100%);
+}
 
-        /* Button styles */
-        button {
-          padding: 10px;
-          background-color: black; /* Change button background to black */
-          color: white; /* Change button text color to white */
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-        }
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
 
-        button:hover {
-          background-color: white; /* Change button hover background to white */
-          color: black; /* Change button hover text color to black */
-        }
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
 
-        /* Package card styles */
-        .package {
-          background-color: white;
-          border: 1px solid #ccc;
-          border-radius: 10px;
-          padding: 20px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
 
-        /* Footer styles */
-        footer {
-          background-color: black; /* Change footer background to black */
-          color: white; /* Change footer text color to white */
-          text-align: center;
-          padding: 20px 0;
-          margin-top: 20px;
-        }
+.social-icons{
+    margin: 20px 0;
+}
 
-        footer a {
-          color: white; /* Change footer link color to white */
-          text-decoration: none;
-        }
+.social-icons a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
 
-        footer a:hover {
-          text-decoration: underline; /* Underline on hover */
-        }
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
 
-        /* Centering the reservation section */
-        #reservation {
-          display: flex;
-          color: white;
-          flex-direction: column;
-          align-items: center; /* Center horizontally */
-          justify-content: center; /* Center vertically */
-          margin: 20px 0; /* Margin around the section */
-        }
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
 
-        #reservation form {
-          width: 100%; /* Ensure the form takes full width */
-          max-width: 400px; /* Limit the width for better appearance */
-        }
+.toggle{
+    background-color: #512da8;
+    height: 100%;
+    background: linear-gradient(to right, #5c6bc0, #512da8);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
 
-        /* Header styles */
-        header h1,
-        section h2 {
-          color: #333; /* Dark color for headers */
-        }
+.container.active .toggle{
+    transform: translateX(50%);
+}
 
-        .services li {
-          width: 20rem;
-          text-align: center;
-        }
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right{
+    transform: translateX(200%);
+}
     </style>
+</head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-      function toggleForms() {
-        const loginForm = document.getElementById('login');
-        const registrationForm = document.getElementById('registration');
-        if (loginForm.style.display === 'none') {
-          loginForm.style.display = 'block';
-          registrationForm.style.display = 'none';
-        } else {
-          loginForm.style.display = 'none';
-          registrationForm.style.display = 'block';
-        }
-      }
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+      const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
     </script>
-  </head>
-  <body>
-    <header>
-      <h1 class="text-light my-5 text-center" style="font-family: cursive">
-        Bienvenue chez Lavage Auto
-      </h1>
-      <nav>
-        <ul class="d-flex justify-content-around">
-          <div>
-            <li><a href="index.html">Acceuil</a></li>
-            <li><a href="reservation.html">Réservation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-           
-          </div>
-        </ul>
-      </nav>
-    </header>
-    <section id="auth" class="d-flex align-items-center justify-content-center">
-      <div style="width: 100%; max-width: 400px; margin-top: 64px;">
-        <h2>Authentification</h2>
-        <button onclick="toggleForms()">Switch to Inscription</button>
-        
-        <div id="login" style="display: block;">
-          <h3>Connexion</h3>
-          <form>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Mot de passe" required />
-            <button type="submit">Se connecter</button>
-          </form>
-        </div>
+</body>
 
-        <div id="registration" style="display: none;">
-          <h3>Créer un Compte</h3>
-          <form>
-            <input type="text" placeholder="Votre Nom" required />
-            <input type="email" placeholder="Votre Email" required />
-            <input type="password" placeholder="Mot de Passe" required />
-            <button type="submit">S'inscrire</button>
-          </form>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <p>&copy; 2025 Lavage Auto. Tous droits réservés.</p>
-    </footer>
-  </body>
 </html>
