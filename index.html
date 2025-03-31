@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavage Auto - Service Professionnel</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+        body {
+          font-family: "Poppins", sans-serif;
+          margin: 0;
+          background: black;
+          padding: 0;
+          background-color: rgb(255, 255, 255); /* Keep background white for contrast */
+          color: rgb(255, 255, 255); /* Change text color to black */
+        }
+
+        header {
+          background-color: black; /* Header background */
+          color: rgb(239, 239, 239); /* Header text color */
+        }
+
+        footer {
+          background-color: black; /* Footer background */
+          color: rgb(255, 255, 255); /* Footer text color */
+        }
+
+        button {
+          padding: 10px;
+          background-color: blue; /* Button background */
+          color: white; /* Button text color */
+        }
+
+        button:hover {
+          background-color: violet; /* Button hover background */
+          color: white; /* Button hover text color */
+        }
+
+        h2 {
+          color: violet; /* Section title color */
+          border-bottom: 2px solid violet; /* Underline effect */
+        }
+
+        /* Header styles */
+        header {
+          background-color: black; /* Change header background to black */
+          color: white; /* Change header text color to white */
+          padding: 20px 0;
+          text-align: center;
+        }
+
+        /* Navigation styles */
+        nav ul {
+          list-style-type: disc;
+          padding: 0;
+        }
+
+        nav ul li {
+          display: inline;
+          margin: 0 15px;
+        }
+
+        nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        nav ul li a:hover {
+          text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Section title styles */
+        h2 {
+          color: #333; /* Dark color for section titles */
+          border-bottom: 2px solid black; /* Underline effect */
+          padding-bottom: 10px;
+        }
+
+        /* General form styles */
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px; /* Space between form elements */
+          margin: 20px 0; /* Margin around the form */
+        }
+
+        /* Input fields */
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+
+        /* Button styles */
+        button {
+          padding: 10px;
+          background-color: black; /* Change button background to black */
+          color: white; /* Change button text color to white */
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        button:hover {
+          background-color: white; /* Change button hover background to white */
+          color: black; /* Change button hover text color to black */
+        }
+
+        /* Footer styles */
+        footer {
+          background-color: black; /* Change footer background to black */
+          color: white; /* Change footer text color to white */
+          text-align: center;
+          padding: 20px 0;
+          margin-top: 20px;
+        }
+
+        footer a {
+          color: white; /* Change footer link color to white */
+          text-decoration: none;
+        }
+
+        footer a:hover {
+          text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background: black">
+    <header>
+      <h1 class="text-light text-center my-5" style="font-family: cursive">
+        Bienvenue chez Lavage Auto
+      </h1>
+      <nav>
+        <ul class="d-flex justify-content-around ">
+          <div>
+            <li><a href="#services">Services</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+            <li><a href="#contact">Contact</a></li>
+         <!-- Link to the new authentication page -->
+          </div>
+
+          <div class="d-flex">
+            <li
+              style="
+                border: solid;
+                width: 4cm;
+                border-radius: 1cm;
+                background: white;
+                text-align: center;
+                color: black;
+              "
+            >
+              <a href="authentication.html" class="text-dark">Authentification</a>
+            </li>
+
+            
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <section
+      id="services"
+      style="text-align: center; background: white; color: black; height: 30rem"
+    >
+      <h2 class="text-center">Nos Services</h2>
+
+      <p style="font-weight: 600;">
+        Nous offrons une gamme complète de services de lavage pour votre
+        véhicule :
+      </p>
+      <ul class="d-flex justify-content-around  " style="margin: 1cm;">
+        <div style="width: 9cm; border: solid; border-radius: 1cm;">
+          <img src="image/LavageInterieur.jpg" alt="" style="width: 8.9cm; border-radius: 1cm 1cm 0 0;">
+          <li style="list-style: none;"> 
+            <strong>Lavage Intérieur :</strong> <br> Un nettoyage complet de
+            l'intérieur de votre véhicule, y compris les sièges, les tapis et le
+            tableau de bord.
+          </li>
+        </div>
+
+        <div style="width: 9cm; border: solid; border-radius: 1cm;">
+          <img src="image/LavageExterieur.jpg" alt="" style="width: 8.9cm; height: 6cm; border-radius: 1cm 1cm 0 0;">
+          <li style="list-style: none;">
+            <strong>Lavage Extérieur :</strong> <br> Un lavage minutieux de
+            l'extérieur, y compris le lavage à la main, le séchage et le
+            polissage.
+          </li>
+        </div>
+
+        <div style="width: 9cm; border: solid; border-radius: 1cm;">
+          <img src="image/Polissage.jpg" alt="" style="width: 8.9cm; border-radius: 1cm 1cm 0 0;">
+          <li style="list-style: none;">
+            <strong>Polissage :</strong>  <br>Un service de polissage pour redonner
+            de l'éclat à la peinture de votre voiture et éliminer les
+            imperfections.
+          </li>
+        </div>
+
+        <div style="width: 9cm; border: solid; border-radius: 1cm;">
+          <img src="image/Ceramique.jpg" alt="" style="width: 8.9cm; border-radius: 1cm 1cm 0 0; ">
+          <li style="list-style: none;">
+            <strong>Traitement Céramique :</strong> <br> Une protection avancée de la
+            peinture qui offre une brillance durable et une résistance aux
+            éléments.
+          </li>
+        </div>
+      </ul>
+    </section>
+
+    <section id="Reservation" style="text-align: center ; color: white;" class="my-5">
+      <h2 class="text-center text-light">Ce que disent nos clients</h2>
+      <p>
+        "Service impeccable, ma voiture est comme neuve !" - Jean D.
+        <span class="rating">⭐⭐⭐⭐⭐</span>
+      </p>
+
+      <p>
+        "Une équipe professionnelle et un service rapide. Je recommande vivement
+        !" - Marie L. <span class="rating">⭐⭐⭐⭐</span>
+      </p>
+
+      <p>
+        "Le meilleur lavage que j'ai jamais eu. Mon véhicule brille comme jamais
+        !" - Paul T. <span class="rating">⭐⭐⭐⭐⭐</span>
+      </p>
+
+      <p>
+        "Un excellent rapport qualité-prix. Je reviendrai sans hésiter !" - Sophie R. <span class="rating">⭐⭐⭐⭐</span>
+      </p>
+    </section>
+
+    <section id="packages" class="my-5">
+      <h2 class="text-center text-light">Nos Forfaits de Lavage</h2>
+      <div class="packages-container" style="flex-direction: column; display: flex; align-items: center; gap: 1cm;">
+        <div class="package" style="background: white; border-radius: 1cm; width: 31cm;">
+          <div class="d-flex justify-content-center align-items-center" style="gap: 4cm ; margin: 1cm 0cm;">
+            <img src="image/BasicForfait.webp" alt="" style="height: 7cm; width: 12cm" />
+            <div style="width: 13cm ">
+              <h3>Forfait Basique</h3>
+              <p>
+                Un lavage extérieur et intérieur complet, parfait pour un
+                entretien régulier de votre véhicule.
+              </p>
+              <p>
+                <strong>Inclus:</strong> Lavage à la main, nettoyage des vitres,
+                et aspiration des sièges.
+              </p>
+              <p><strong>Prix:</strong> 2000 fcfa.</p>
+              <a href="reservation.html"><button>Réserver</button></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="package" style="background: white; border-radius: 1cm; width: 31cm;">
+          <div class="d-flex justify-content-center align-items-center flex-row-reverse" style="gap: 4cm ; margin: 1cm 0cm;">
+            <img src="image/Premiumm.webp" alt="" style="height: 7cm; width: 12cm" />
+            <div style="width: 13cm">
+              <h3>Forfait Premium</h3>
+              <p>
+                Un service de lavage complet qui inclut le polissage et le
+                traitement céramique pour une protection durable.
+              </p>
+              <p>
+                <strong>Inclus:</strong> Lavage extérieur, polissage, traitement
+                céramique, et nettoyage intérieur approfondi.
+              </p>
+              <p><strong>Prix:</strong> 5000 Fcfa.</p>
+              <a href="reservation.html"><button>Réserver</button></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="package" style="background: white; border-radius: 1cm; width: 31cm;">
+          <div class="d-flex justify-content-center align-items-center" style="gap: 4cm ; margin: 1cm 0cm;">
+            <img src="image/ForfaitLuxe.jpg" alt="" style="height: 7cm; width: 12cm" />
+            <div style="width: 13cm">
+              <h3>Forfait Luxe</h3>
+              <p>
+                Le meilleur service pour votre véhicule, combinant tous les
+                avantages des forfaits précédents avec des soins
+                supplémentaires.
+              </p>
+              <p>
+                <strong>Inclus:</strong> Lavage extérieur, polissage, traitement
+                céramique, nettoyage intérieur, et désinfection complète.
+              </p>
+              <p><strong>Prix:</strong> 15.000 Fcfa.</p>
+              <a href="reservation.html"><button>Réserver</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background: white; display: flex; justify-content: center">
+      <div style="width: 13cm">
+        <h2 class="text-center">Contactez-nous</h2>
+        <form>
+          <input type="text" placeholder="Votre Nom" required />
+          <input type="email" placeholder="Votre Email" required />
+          <textarea placeholder="Votre Message" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
+      <p>&copy; 2025 Lavage Auto. Tous droits réservés.</p>
+    </footer>
+
+    <script src="animations.js"></script>
+  </body>
+</html>
